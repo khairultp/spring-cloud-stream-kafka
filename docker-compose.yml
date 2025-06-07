@@ -24,10 +24,11 @@ services:
     networks:
       - kafka-net
 
-  producer:
-    image: producer
+  kafka-producer:
+    image: kafka-producer
     build:
-      context: ./producer
+      context: .
+      dockerfile: ./kafka-producer/Dockerfile
     ports:
       - "8081:8081"
     environment:
@@ -35,10 +36,11 @@ services:
     networks:
       - kafka-net
 
-  consumer:
-    image: consumer
+  kafka-consumer:
+    image: kafka-consumer
     build:
-      context: ./consumer
+      context: .
+      dockerfile: ./kafka-consumer/Dockerfile
     ports:
       - "8082:8082"
     environment:
