@@ -4,7 +4,6 @@ RUN --mount=type=bind,source=pom.xml,target=/tmp/pom.xml cp /tmp/pom.xml .
 COPY pom.xml ./kafka-consumer/pom.xml
 COPY kafka-consumer/pom.xml ./kafka-consumer/
 COPY kafka-consumer/src ./kafka-consumer/src
-RUN mvn -e -f kafka-consumer/pom.xml dependency:go-offline -B
 RUN mvn -e -f kafka-consumer/pom.xml clean package -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine

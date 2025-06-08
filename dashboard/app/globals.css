@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 247, 250;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .log-entry {
+    @apply p-3 border-b border-gray-200 hover:bg-gray-50 transition-colors;
+  }
+  
+  .log-timestamp {
+    @apply text-sm text-gray-500 mr-2;
+  }
+  
+  .log-content {
+    @apply text-sm;
+  }
+  
+  .log-highlight {
+    @apply bg-yellow-100 px-1 rounded;
+  }
+}

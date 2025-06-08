@@ -48,6 +48,20 @@ services:
     networks:
       - kafka-net
 
+  dashboard:
+    image: dashboard
+    build:
+      context: .
+      dockerfile: ./dashboard/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8082
+    depends_on:
+      - kafka-consumer
+    networks:
+      - kafka-net
+
 networks:
   kafka-net:
     driver: bridge
