@@ -96,3 +96,35 @@ The dashboard provides real-time monitoring of Kafka consumer logs, inspired by 
 - Connection status indicator
 
 For more details about the dashboard, see the [dashboard README](dashboard/README.md).
+
+### Dashboard Screenshot
+
+Below is a screenshot of the dashboard in action:
+
+![Dashboard Screenshot](Screenshot.png)
+
+## Redis Integration
+
+The consumer service uses Redis as a data store for employee information:
+
+- Redis is configured to run on localhost:6379 by default
+- Employee data received from Kafka is automatically stored in Redis
+- Each employee is stored with their name as the key and the serialized JSON as the value
+- Redis configuration can be modified in the `kafka-consumer/src/main/resources/application.properties` file
+
+## Employee API Endpoints
+
+The consumer service provides the following REST API endpoints for retrieving employee data from Redis:
+
+- `GET /api/employees` - Retrieves all employees stored in Redis
+- `GET /api/employees/{name}` - Retrieves a specific employee by name
+
+Example usage:
+
+```bash
+# Get all employees
+curl http://localhost:8082/api/employees
+
+# Get a specific employee
+curl http://localhost:8082/api/employees/John%20Doe
+```

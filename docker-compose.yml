@@ -24,6 +24,13 @@ services:
     networks:
       - kafka-net
 
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - kafka-net
+
   kafka-producer:
     image: kafka-producer
     build:
@@ -45,6 +52,8 @@ services:
       - "8082:8082"
     environment:
       SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS: kafka:29092
+      SPRING.DATA.REDIS.HOST: redis
+      SPRING.DATA.REDIS.PORT: 6379
     networks:
       - kafka-net
 

@@ -1,10 +1,14 @@
 package com.khairul.kafka.consumer.model;
 
-import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
+@Setter
+@Getter
 public class LogEntry {
     private String id;
     private ZonedDateTime timestamp;
@@ -21,46 +25,6 @@ public class LogEntry {
         this();
         this.message = message;
         this.employeeName = employeeName;
-        this.department = department;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public ZonedDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(ZonedDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
         this.department = department;
     }
 }
