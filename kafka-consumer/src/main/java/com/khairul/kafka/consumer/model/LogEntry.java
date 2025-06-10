@@ -2,6 +2,7 @@ package com.khairul.kafka.consumer.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -9,6 +10,7 @@ import java.util.UUID;
 
 @Setter
 @Getter
+@ToString
 public class LogEntry {
     private String id;
     private ZonedDateTime timestamp;
