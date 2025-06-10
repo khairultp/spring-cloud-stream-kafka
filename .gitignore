@@ -15,3 +15,10 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+
+# IntelliJ IDEA files
+*.iml
+*.xml
+.idea/
+**/.idea/
